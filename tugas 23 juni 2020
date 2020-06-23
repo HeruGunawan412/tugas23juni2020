@@ -1,0 +1,90 @@
+#include <iostream>
+#include <string>
+#include <windows.h>
+
+using namespace std;
+
+string nama, asal_sekolah, nisn;
+char pilihan;
+int Tahun_kelulusan;
+float nilai;
+bool hasil, hasil2;
+double a, b, c, d;
+
+void program(){
+	
+	system("cls");
+
+	cout << "\nMasukkan nama sekolah [SMA/SMK]: "	; cin >> asal_sekolah;
+	cout << "\nMasukan Tahun kelulusan [Tahun]\t: "	; cin >> Tahun_kelulusan;
+	cout << "\nMasukan NISN\t\t\t: "		; cin >> nisn;
+	
+	system("cls");
+	
+	cout << "\nmasukan Nilai Bahasa Indonesia"		<< "\t\t\t: "	; cin >> a;
+	cout << "\nmasukan Nilai Matematika"			<< "\t\t\t: "	; cin >> b;
+	cout << "\nmasukan Nilai Bahasa Inggris"		<< "\t\t\t\t: "; cin >> c;
+	cout << "\nmasukan Nilai mata ujian pilihan "	<< "\t\t\t: "	; cin >> d;
+
+	
+	nilai = ((a + b + c + d ) / 4);
+	
+	hasil2 = nilai <= 75.09;
+	hasil = nilai >= 75.09;
+	
+	cout << "\n\n-NAMA\t: " << nama;
+	cout << "\t-NISN\t: " << nisn;
+	cout << "\t-ASAL SEKOLAH\t: " << asal_sekolah;
+	cout << "\t- TAHUN KELULUSAN\t: " << Tahun_kelulusan << "\n\n";
+	
+	if (nilai <= 40.09){
+		cout << "Anda Mendapatkan Predikat E dengan Nilai\t: "	<< nilai << "\n";
+	}else if (nilai <= 55.09){
+		cout << "Anda Mendapatkan Predikat D dengan Nilai\t: "	<< nilai << "\n";
+	}else if (nilai <= 65.09){
+		cout << "Anda Mendapatkan Predikat C dengan Nilai\t: "	<< nilai << "\n";
+	}else if (nilai <= 75.09){
+		cout << "Anda Mendapatkan Predikat BC dengan Nilai\t: "	<< nilai << "\n";
+	}else if (nilai <= 85.09){
+		cout << "Anda Mendapatkan Predikat B dengan Nilai\t: "	<< nilai << "\n";
+	}else if (nilai <= 90.09){
+		cout << "Anda Mendapatkan Predikat AB dengan Nilai\t: "	<< nilai << "\n";
+	}else if (nilai <= 100){
+		cout << "Anda Mendapatkan Predikat A dengan Nilai\t: "	<< nilai << "\n";
+	}else{
+		cout << "pilihan anda tidak valid!\n";
+	}
+	
+	if (hasil){
+		cout << "\nAnda Lulus dan dinyatakan diterima dikampus politeknik uggulan kalimantan\n";
+	}
+	else if (hasil2){
+		cout << "\nMohon maaf nilai anda belum memenuhi persyaratan penerimaan mahasiswa baru politeknik unggulan kalimantan\n";
+	}
+}
+
+int main(){
+	
+	cout << "Hallo, silahkan masukkan nama anda ?\t>> "; getline (cin, nama);
+	system("cls");
+	
+	awal :
+		cout << "Hallo, ' " << nama << " ' Apakah anda ingin mendaftar di kampus politeknik unggulan kalimantan ? [Y / N]\t>> "; cin >> pilihan;
+		cout << "selamat datang , ' " << nama << " ' silahkan masukkan nilai ujian anda ? [Y / N]\t>> "; cin >> pilihan;
+	while(true){
+		
+		if (pilihan == 'y' || pilihan == 'Y'){
+			program();
+			break;
+		}
+		else if (pilihan == 'n' || pilihan == 'N'){
+			cout << "\nTerima Kasih Atas Kunjungannya...";
+			break;
+		}
+		else{
+			cout << "\nPilihan Anda Tidak Valid!\n"; goto awal;
+		}
+	}
+	
+	return 0;
+}
